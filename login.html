@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+        <title>Login</title>
+        <link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">
+        <link rel="stylesheet" type="text/css" href="scripts/toast/jquery.toast.css">
+        <link rel="manifest" href="_manifest.json" data-pwa-version="set_in_manifest_and_pwa_js">
+        <link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">
+    </head>
+    <body class="theme-light" data-highlight="highlight-red" data-gradient="body-default">
+        <div id="preloader">
+            <div class="spinner-border color-highlight" role="status"></div>
+        </div>
+        <div id="page" style="margin-top: 30%;margin-bottom: 30%; height: 40%;">
+            <div class="page-content header-clear-medium">
+                <div class="card card-style preload-img" data-src="images/pictures/8w.jpg" data-card-height="100">
+                    <div class="card-center ms-3">
+                        <h1 class="color-white mb-0">Log in to continue</h1>
+                        <p class="color-white mt-n1 mb-0">We're always here for you!</p>
+                    </div>
+                    <div class="card-center me-3">
+                        <a href="register.html" data-back-button class="btn btn-m float-end rounded-xl shadow-xl text-uppercase font-800 bg-highlight">Register</a>
+                    </div>
+                    <div class="card-overlay bg-black opacity-80"></div>
+                </div>
+                <div class="card card-style">
+                    <div class="content">
+                        <form action="login.php" method="post">
+                            <fieldset>
+                                <div class="form-field form-name">
+                                    <label class="contactNameField color-theme" for="contactNameField">Email / Phone: <span>(required)</span>
+                                    </label>
+                                    <input type="text" name="identifier" class="round-small" id="contactNameField" />
+                                </div>
+                                <div class="form-field form-email">
+                                    <label class="contactEmailField color-theme" for="contactEmailField">Password: <span>(required)</span>
+                                    </label>
+                                    <input type="password" name="password" class="round-small" id="contactEmailField" />
+                                </div>
+                                <center>
+                                    <div class="form-button">
+                                        <button type="submit" class="btn bg-highlight text-uppercase font-900 btn-m btn-full rounded-sm  shadow-xl">Login</button>
+                                    </div>
+                                </center>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+        <script type="text/javascript" src="scripts/jquery.min.js"></script>
+        <script type="text/javascript" src="scripts/toast/jquery.toast.js"></script>
+        <script type="text/javascript" src="scripts/form_handler.js?v"></script>
+        <script type="text/javascript" src="scripts/custom.js"></script>
+    </body>
