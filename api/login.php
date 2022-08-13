@@ -14,9 +14,13 @@
 			$at = $conn->query($sql);
 			if ($at->num_rows > 0) {
 
+				$stat = $at->fetch_assoc();
+
+				unset($stat['password']);
+
 				header('HTTP/1.1 200 OK');
 				header('Content-Type: application/json; charset=UTF-8');
-				echo json_encode(array("msg"=>"Login successful", "store_key" => "user_info", "user_info"=>$at->fetch_assoc(), "redirect"=>"dashboard.html"));
+				echo json_encode(array("msg"=>"Login successful", "store_key" => "user_info", "user_info"=>$stat, "redirect"=>"dashboard.html"));
 
 			}else{
 				throw new Exception("Invalid credentials");
