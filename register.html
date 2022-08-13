@@ -25,7 +25,7 @@
                         <p class="color-white mt-n1 mb-0">We're always here for you!</p>
                     </div>
                     <div class="card-center me-3">
-                        <a href="register.html" data-back-button class="btn btn-m float-end rounded-xl shadow-xl text-uppercase font-800 bg-highlight">Register</a>
+                        <a href="login.html" data-back-button class="btn btn-m float-end rounded-xl shadow-xl text-uppercase font-800 bg-highlight">Login</a>
                     </div>
                     <div class="card-overlay bg-black opacity-80"></div>
                 </div>
@@ -80,7 +80,9 @@
                                     </select>
                                 </div>
                                 <div class="form-button">
-                                    <button type="submit" class="btn bg-highlight text-uppercase font-900 btn-m btn-full rounded-sm  shadow-xl">Register</button>
+                                    <center>
+                                        <button type="submit" class="btn bg-highlight text-uppercase font-900 btn-m btn-full rounded-sm  shadow-xl">Register</button>
+                                    </center>
                                 </div>
                             </fieldset>
                         </form>
@@ -91,6 +93,10 @@
         <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
         <script type="text/javascript" src="scripts/jquery.min.js"></script>
         <script type="text/javascript" src="scripts/toast/jquery.toast.js"></script>
-        <script type="text/javascript" src="scripts/form_handler.js?v"></script>
-        <script type="text/javascript" src="scripts/custom.js"></script>
+        <script type="text/javascript" src="scripts/custom.js?v=asssd"></script>
+        <script type="text/javascript">
+            if ($.cookie("user_info")) {
+                window.location = "dashboard.html";
+            }
+        </script>
     </body>
