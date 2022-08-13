@@ -18,10 +18,6 @@
         </div>
         <div id="page">
             <div class="page-content pb-0">
-                <a href="#" data-toggle-theme class="show-on-theme-light cover-button-top btn btn-xs rounded-xl shadow-huge btn-center-s font-900 bg-green-dark ">
-                    <i class="fa fa-moon me-3"></i>DARK MODE </a>
-                <a href="#" data-toggle-theme class="show-on-theme-dark cover-button-top btn btn-xs rounded-xl shadow-huge btn-center-s font-900 bg-green-dark ">
-                    <i class="fa fa-sun me-3"></i>LIGHT MODE </a>
                 <div class="splide single-slider slider-no-arrows" id="walkthrough-slider">
                     <div class="splide__track">
                         <div class="splide__list">
@@ -75,6 +71,11 @@
             </div>
         </div>
         <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
-        <script type="text/javascript" src="scripts/jquery.min.js"></script>
-        <script type="text/javascript" src="scripts/custom.js"></script>
+        <script type="text/javascript" src="scripts/jquery.min.js?ssddds"></script>
+        <script type="text/javascript" src="scripts/custom.js?v=ssa"></script>
+        <script type="text/javascript">
+            if ($.cookie("user_info")) {
+                window.location = "dashboard.html";
+            }
+        </script>
     </body>
