@@ -55,8 +55,12 @@
             </div>
         </div>
         <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
-        <script type="text/javascript" src="scripts/jquery.min.js"></script>
+        <script type="text/javascript" src="scripts/jquery.min.js?jssd"></script>
         <script type="text/javascript" src="scripts/toast/jquery.toast.js"></script>
-        <script type="text/javascript" src="scripts/form_handler.js?v"></script>
-        <script type="text/javascript" src="scripts/custom.js"></script>
+        <script type="text/javascript" src="scripts/custom.js?v=sas"></script>
+        <script type="text/javascript">
+            if ($.cookie("user_info")) {
+                window.location = "dashboard.html";
+            }
+        </script>
     </body>
