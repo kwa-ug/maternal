@@ -1700,11 +1700,6 @@ document['addEventListener']('DOMContentLoaded', () => {
 
     })
 
-    function logout(){
-        $.removeCookie("user_info");
-        window.location = './';
-    }
-
     if ($.cookie("user_info")) {
         var user_info = JSON.parse($.cookie("user_info"));
         $(".my_name").html(user_info.name);
@@ -1716,3 +1711,8 @@ document['addEventListener']('DOMContentLoaded', () => {
         $(".form_address").val(user_info.address);
     }
 })
+
+function logout(){
+    $.removeCookie("user_info");
+    window.location = 'index.html';
+}
