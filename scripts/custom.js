@@ -1614,7 +1614,7 @@ document['addEventListener']('DOMContentLoaded', () => {
     _0x399bx9()
 
 
-    const API_URL = "api/";
+    const API_URL = "https://kwaug.com/maternal_api/";
 
     if (window.history.replaceState) {
         window.history.replaceState(null, null, window.location.href);
@@ -1630,8 +1630,6 @@ document['addEventListener']('DOMContentLoaded', () => {
       }
     }
 
-    var xhr = null;
-
     $("form").on("submit", function(e) {
         e.preventDefault();
         // spinner.show();
@@ -1641,62 +1639,51 @@ document['addEventListener']('DOMContentLoaded', () => {
         var action = $(this).attr("action");
         // console.log(form_id)
         var formData;
-        formData = $(this).serialize();
+        formData = new FormData(e.target);//$(this).serialize();
         var method = $(this).attr("method");
         var submit_btn = $(this).find('[type=submit]');
         var html_submit = submit_btn.html();
         submit_btn.html("PLEASE WAIT...");
         submit_btn.prop('disabled',true);
-        if (xhr) {
-            xhr.abort();
+        var obj = Object.fromEntries(formData.entries());
+
+        
+        if(obj) {
+            /*Fire success the message through a toast*/
+            $.toast({
+                text: "Registration successful",
+                hideAfter: false,
+                bgColor: '#28a745',
+                loaderBg: '#166328',
+                stack: 2,
+                icon: 'success',
+                position: 'bottom-center'
+            })
+
+            $('button[type="reset"]').trigger("click")
+
+            
+            sessionStorage.setItem("user_info", obj);
+            $.cookie("user_info", JSON.stringify(obj), { expires: 400 } );
+            
+            submit_btn.html(html_submit)
+            submit_btn.prop('disabled',false)
+            window.location="dashboard.html";
+
+        }else{
+            submit_btn.html(html_submit)
+            submit_btn.prop('disabled',false)
+            /*Fire failure the message through a toast*/
+            $.toast({
+                text: "Failed",
+                hideAfter: false,
+                bgColor: '#dc3545',
+                loaderBg: '#850713',
+                stack: 3,
+                icon: 'error',
+                position: 'bottom-center'
+            })
         }
-        xhr = $.ajax({
-            url: API_URL+action,
-            method: method,
-            cache: false,
-            data: formData,
-            success: function(res) {
-                /*Fire success the message through a toast*/
-                $.toast({
-                    text: res.msg,
-                    hideAfter: false,
-                    bgColor: '#28a745',
-                    loaderBg: '#166328',
-                    stack: 2,
-                    icon: 'success',
-                    position: 'bottom-center'
-                })
-
-                $('button[type="reset"]').trigger("click")
-
-                if(res.user_info){
-                    sessionStorage.setItem(res.store_key, res.user_info);
-                    $.cookie(res.store_key, JSON.stringify(res.user_info), { expires: 400 } );
-                }
-                submit_btn.html(html_submit)
-                submit_btn.prop('disabled',false)
-                // $('button[type="reset"]').trigger("click")
-
-                if(res.redirect){
-                    // sleep(5000);
-                    window.location=res.redirect;
-                }
-            },
-            error: function(res) {
-                submit_btn.html(html_submit)
-                submit_btn.prop('disabled',false)
-                /*Fire failure the message through a toast*/
-                $.toast({
-                    text: res.responseJSON.errorMsg,
-                    hideAfter: false,
-                    bgColor: '#dc3545',
-                    loaderBg: '#850713',
-                    stack: 3,
-                    icon: 'error',
-                    position: 'bottom-center'
-                })
-            }
-        })
 
     })
 
@@ -1705,7 +1692,7 @@ document['addEventListener']('DOMContentLoaded', () => {
         $(".my_name").html(user_info.name);
 
         $(".form_name").val(user_info.name);
-        $(".form_email").val(user_info.email);
+        $(".form_email").val(user_info.identifier);
         $(".form_id").val(user_info.id);
         $(".form_contact").val(user_info.contact);
         $(".form_address").val(user_info.address);

@@ -5,7 +5,7 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
-        <title>Login</title>
+        <title>Register</title>
         <link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">
@@ -17,37 +17,62 @@
         <div id="preloader">
             <div class="spinner-border color-highlight" role="status"></div>
         </div>
-        <div id="page" style="margin-top: 30%;margin-bottom: 30%; height: 40%;">
+        <div id="page">
             <div class="page-content header-clear-medium">
                 <div class="card card-style preload-img" data-src="images/pictures/8w.jpg" data-card-height="100">
                     <div class="card-center ms-3">
-                        <h1 class="color-white mb-0">Log in to continue</h1>
+                        <h1 class="color-white mb-0">Register now</h1>
                         <p class="color-white mt-n1 mb-0">We're always here for you!</p>
                     </div>
                     <div class="card-center me-3">
-                        <a href="register.html" data-back-button class="btn btn-m float-end rounded-xl shadow-xl text-uppercase font-800 bg-highlight">Register</a>
+                        <a href="#" data-back-button class="btn btn-m float-end rounded-xl shadow-xl text-uppercase font-800 bg-highlight">Welcome</a>
                     </div>
                     <div class="card-overlay bg-black opacity-80"></div>
                 </div>
                 <div class="card card-style">
                     <div class="content">
-                        <form action="login.php" method="post">
+                        <form action="register.php" id="register_form" method="post">
                             <fieldset>
                                 <div class="form-field form-name">
-                                    <label class="contactNameField color-theme" for="contactNameField">Email / Phone: <span>(required)</span>
+                                    <label class="contactNameField color-theme" for="contactNameField">Name : <span>(required)</span>
                                     </label>
-                                    <input type="text" name="identifier" class="round-small" id="contactNameField" />
+                                    <input type="text" name="name" value="" class="round-small" id="contactNameField" required />
                                 </div>
-                                <div class="form-field form-email">
-                                    <label class="contactEmailField color-theme" for="contactEmailField">Password: <span>(required)</span>
+                                <div class="form-field form-name">
+                                    <label class="contactNameField color-theme" for="contactNameField">Email / Phone :
                                     </label>
-                                    <input type="password" name="password" class="round-small" id="contactEmailField" />
+                                    <input type="text" required name="identifier" value="" class="round-small" id="contactNameField" />
                                 </div>
-                                <center>
-                                    <div class="form-button">
-                                        <button type="submit" class="btn bg-highlight text-uppercase font-900 btn-m btn-full rounded-sm  shadow-xl">Login</button>
-                                    </div>
-                                </center>
+                                <div class="form-field form-name">
+                                    <label class="contactNameField color-theme" for="contactNameField">Password : <span>(required)</span>
+                                    </label>
+                                    <input type="password" required name="password" value="" class="round-small" id="contactNameField" />
+                                </div>
+                                <div class="form-field form-name">
+                                    <label class="contactNameField color-theme" for="contactNameField">Contact: <span>(required)</span>
+                                    </label>
+                                    <input type="text" name="contact" value="" class="round-small" id="contactNameField" required />
+                                </div>
+                                <div class="form-field form-name">
+                                    <label class="contactNameField color-theme" for="contactNameField">Address: <span>(required)</span>
+                                    </label>
+                                    <input type="text" name="address" value="" class="round-small" id="contactNameField" required />
+                                </div>
+                                <div class="form-field form-name">
+                                    <label class="contactNameField color-theme" for="contactNameField">Last Period: <span>(required)</span>
+                                    </label>
+                                    <input type="date" name="last_period" value="" class="round-small" id="contactNameField" required />
+                                </div>
+                                <div class="form-field form-name">
+                                    <label class="contactNameField color-theme" for="contactNameField">First Antenatal Visit: <span>(required)</span>
+                                    </label>
+                                    <input type="date" name="first_antenatal_visit" value="" class="round-small" id="contactNameField" required />
+                                </div>
+                                <div class="form-button">
+                                    <center>
+                                        <button type="submit" class="btn bg-highlight text-uppercase font-900 btn-m btn-full rounded-sm  shadow-xl">Register</button>
+                                    </center>
+                                </div>
                             </fieldset>
                         </form>
                     </div>
@@ -55,9 +80,9 @@
             </div>
         </div>
         <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
-        <script type="text/javascript" src="scripts/jquery.min.js?jssd"></script>
+        <script type="text/javascript" src="scripts/jquery.min.js"></script>
         <script type="text/javascript" src="scripts/toast/jquery.toast.js"></script>
-        <script type="text/javascript" src="scripts/custom.js?v=sas"></script>
+        <script type="text/javascript" src="scripts/custom.js?v=assssdsdd"></script>
         <script type="text/javascript">
             if ($.cookie("user_info")) {
                 window.location = "dashboard.html";
