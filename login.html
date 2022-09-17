@@ -31,7 +31,7 @@
                 </div>
                 <div class="card card-style">
                     <div class="content">
-                        <form action="register.php" id="register_form" method="post">
+                        <form id="register_form"  onsubmit="register_person(e)" autocomplete="off" method="post">
                             <fieldset>
                                 <div class="form-field form-name">
                                     <label class="contactNameField color-theme" for="contactNameField">Name : <span>(required)</span>
@@ -84,8 +84,14 @@
         <script type="text/javascript" src="scripts/toast/jquery.toast.js"></script>
         <script type="text/javascript" src="scripts/custom.js?v=assssdsdd"></script>
         <script type="text/javascript">
-            if ($.cookie("user_info")) {
-                window.location = "dashboard.html";
+            if (localStorage.getItem("user_info")) {
+                var link=document.createElement("a");
+                link.id = 'someLink'; //give it an ID!
+                link.href="dashboard.html";
+
+                //Add the link somewhere, an appendChild statement will do.
+                //Then run this
+                link.click()
             }
         </script>
     </body>

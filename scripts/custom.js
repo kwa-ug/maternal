@@ -34,13 +34,13 @@ document['addEventListener']('DOMContentLoaded', () => {
             var _0x399bx15 = /[A-Za-z]{2}[A-Za-z]*[ ]?[A-Za-z]*/;
 
             function _0x399bx16(_0x399bxc) {
-                _0x399bxc['parentElement']['querySelectorAll']('.valid')[0]['classList']['remove']('disabled');
-                _0x399bxc['parentElement']['querySelectorAll']('.invalid')[0]['classList']['add']('disabled')
+                // _0x399bxc['parentElement']['querySelectorAll']('.valid')[0]['classList']['remove']('disabled');
+                // _0x399bxc['parentElement']['querySelectorAll']('.invalid')[0]['classList']['add']('disabled')
             }
 
             function _0x399bx17(_0x399bxc) {
-                _0x399bxc['parentElement']['querySelectorAll']('.valid')[0]['classList']['add']('disabled');
-                _0x399bxc['parentElement']['querySelectorAll']('.invalid')[0]['classList']['remove']('disabled')
+                // _0x399bxc['parentElement']['querySelectorAll']('.valid')[0]['classList']['add']('disabled');
+                // _0x399bxc['parentElement']['querySelectorAll']('.invalid')[0]['classList']['remove']('disabled')
             }
 
             function _0x399bx18(_0x399bxc) {
@@ -1614,7 +1614,6 @@ document['addEventListener']('DOMContentLoaded', () => {
     _0x399bx9()
 
 
-    const API_URL = "https://kwaug.com/maternal_api/";
 
     if (window.history.replaceState) {
         window.history.replaceState(null, null, window.location.href);
@@ -1630,7 +1629,40 @@ document['addEventListener']('DOMContentLoaded', () => {
       }
     }
 
-    $("form").on("submit", function(e) {
+    if (localStorage.getItem("user_info")) {
+    var user_info = JSON.parse(localStorage.getItem("user_info"));
+
+    $(".form_name").val(user_info.name);
+    $(".form_email").val(user_info.identifier);
+    $(".form_id").val(user_info.id);
+    $(".form_contact").val(user_info.contact);
+    $(".form_address").val(user_info.address);
+    $(".my_name").html(user_info.name);
+}
+
+})
+
+function logout(){
+    localStorage.clear();
+    // window.location = 'index.html';
+    var link=document.createElement("a");
+    link.id = 'someLink'; //give it an ID!
+    link.href="index.html";
+
+    //Add the link somewhere, an appendChild statement will do.
+    //Then run this
+    link.click();
+}
+
+if (window.history.replaceState) {
+    window.history.replaceState(null, null, window.location.href);
+}
+
+document.addEventListener('contextmenu', event => event.preventDefault());
+
+document.addEventListener('submit', function(e) {
+    // $("form").on("submit", function(e) {
+// function register_person(e){
         e.preventDefault();
         // spinner.show();
         // console.log($(this))
@@ -1647,7 +1679,7 @@ document['addEventListener']('DOMContentLoaded', () => {
         submit_btn.prop('disabled',true);
         var obj = Object.fromEntries(formData.entries());
 
-        
+
         if(obj) {
             /*Fire success the message through a toast*/
             $.toast({
@@ -1662,13 +1694,19 @@ document['addEventListener']('DOMContentLoaded', () => {
 
             $('button[type="reset"]').trigger("click")
 
-            
-            sessionStorage.setItem("user_info", obj);
-            $.cookie("user_info", JSON.stringify(obj), { expires: 400 } );
-            
+
+            localStorage.setItem("user_info", JSON.stringify(obj));
+
             submit_btn.html(html_submit)
             submit_btn.prop('disabled',false)
-            window.location="dashboard.html";
+            
+            var link=document.createElement("a");
+            link.id = 'someLink'; //give it an ID!
+            link.href="dashboard.html";
+
+            //Add the link somewhere, an appendChild statement will do.
+            //Then run this
+            link.click()
 
         }else{
             submit_btn.html(html_submit)
@@ -1685,21 +1723,5 @@ document['addEventListener']('DOMContentLoaded', () => {
             })
         }
 
-    })
+    });
 
-    if ($.cookie("user_info")) {
-        var user_info = JSON.parse($.cookie("user_info"));
-        $(".my_name").html(user_info.name);
-
-        $(".form_name").val(user_info.name);
-        $(".form_email").val(user_info.identifier);
-        $(".form_id").val(user_info.id);
-        $(".form_contact").val(user_info.contact);
-        $(".form_address").val(user_info.address);
-    }
-})
-
-function logout(){
-    $.removeCookie("user_info");
-    window.location = 'index.html';
-}

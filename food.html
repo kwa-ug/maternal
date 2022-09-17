@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">
-    <link rel="manifest" href="_manifest.html" data-pwa-version="set_in_manifest_and_pwa_js">
+    
     <link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">
 </head>
 
@@ -149,8 +149,14 @@
     <script type="text/javascript" src="scripts/custom.js"></script>
 
     <script type="text/javascript">
-        if ($.cookie("user_info") == null) {
-            window.location = './';
+        if (localStorage.getItem("user_info") == null) {
+            var link=document.createElement("a");
+            link.id = 'someLink'; //give it an ID!
+            link.href="index.html";
+
+            //Add the link somewhere, an appendChild statement will do.
+            //Then run this
+            link.click()
         }
 
         setTimeout(function() {
