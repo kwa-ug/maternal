@@ -27,7 +27,7 @@
             <a href="dashboard.html"><i class="fa fa-home"></i><span>Home</span></a>
             <a href="contact.html"><i class="fa fa-headset"></i><span>Contact Us</span></a>
             <a href="profile.html"><i class="fa fa-user"></i><span>Profile</span></a>
-            <a href="javascript:void(0);" onclick="logout();"><i class="fa fa-power-off"></i><span>Logout</span></a>
+            <a href="#" data-menu="menu-settings"><i class="fa fa-cog"></i><span>Settings</span></a>
         </div>
         <div class="card card-style mb-5" style="margin-top: 70px;">
             <div class="content mb-5">
@@ -64,6 +64,35 @@
         </div>
     </div>
 
+    <div id="menu-settings" class="menu menu-box-bottom menu-box-detached">
+            <div class="menu-title mt-0 pt-0">
+                <h1>Settings</h1>
+                <p class="color-highlight">Customise the theme to your preference</p><a href="#" class="close-menu"><i class="fa fa-times"></i></a>
+            </div>
+            <div class="divider divider-margins mb-n2"></div>
+            <div class="content">
+                <div class="list-group list-custom-small">
+                    <a href="#" data-toggle-theme data-trigger-switch="switch-dark-mode" class="pb-2 ms-n1">
+                        <i class="fa font-12 fa-moon rounded-s bg-highlight color-white me-3"></i>
+                        <span>Dark Mode</span>
+                        <div class="custom-control scale-switch ios-switch">
+                            <input data-toggle-theme type="checkbox" class="ios-input" id="switch-dark-mode">
+                            <label class="custom-control-label" for="switch-dark-mode"></label>
+                        </div>
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+                <div class="list-group list-custom-large">
+                    <a data-menu="menu-highlights" class="pb-2" href="javascript:void(0);" onclick="logout();">
+                        <i class="fa font-14 fa-power-off bg-dark-dark rounded-s"></i>
+                        <span>Log out</span>
+                        <strong>Click to log out</strong>
+                        <span class="badge bg-highlight color-white"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
      <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
     <script type="text/javascript" src="scripts/jquery.min.js?jsd"></script>
     <script type="text/javascript" src="scripts/toast/jquery.toast.js"></script>
@@ -71,7 +100,7 @@
 
     <script type="text/javascript">
 
-        if (localStorage.getItem("user_info") == null) {
+        if (sessionStorage.getItem("user_info") == null) {
             var link=document.createElement("a");
             link.id = 'someLink'; //give it an ID!
             link.href="index.html";
